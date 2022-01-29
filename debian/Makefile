@@ -12,7 +12,7 @@ build:
 run:
 	mkdir $(VOLUME_NAME) || true
 	touch .env || true
-	docker run --env-file .env --rm -it --name $(CONTAINER_NAME) -v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) -p $(SSH_PORTS) $(IMAGE_NAME)
+	docker run --env-file .env --rm -it --name $(CONTAINER_NAME) -v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) $(IMAGE_NAME)
 
 runs:
 	mkdir $(VOLUME_NAME) || true
