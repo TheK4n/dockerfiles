@@ -17,7 +17,13 @@ run:
 runs:
 	mkdir $(VOLUME_NAME) || true
 	touch .env || true
-	docker run --env-file .env --rm --name $(CONTAINER_NAME) -v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) -p $(SSH_PORTS) $(IMAGE_NAME)
+	docker run --env-file .env --rm -it -d --name $(CONTAINER_NAME) -v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) -p $(SSH_PORTS) $(IMAGE_NAME) sleep infinity
+
+attach:
+	docker attach $(CONTAINER_NAME)
 
 stop:
 	docker stop $(CONTAINER_NAME)
+
+rm:
+	docker rm $(CONTAINER_NAME)
