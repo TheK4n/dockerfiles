@@ -10,8 +10,8 @@ WORKDIR /root
 RUN rm ~/.bashrc || true
 RUN git clone https://github.com/TheK4n/dotfiles && cd dotfiles && make
 
-RUN mkdir .ssh || true
-RUN echo "$SSHKEY" > .ssh/authorized_keys
+RUN mkdir ~/.ssh || true
+RUN echo "$SSHKEY" > ~/.ssh/authorized_keys
 RUN echo "Port 22" >> /etc/ssh/sshd_config
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 RUN echo "root:1234" | chpasswd
