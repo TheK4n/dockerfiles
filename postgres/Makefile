@@ -11,6 +11,7 @@ rund:
 	docker run --rm -p $(PORT_OUT):$(PORT_IN) -d --name $(CONTAINER_NAME) -e POSTGRES_PASSWORD=$(POSTGRES_PASSWORD) -v $(VOLUME_NAME):/var/lib/postgresql/data postgres
 
 connect:
+	echo "Enter password: $(POSTGRES_PASSWORD)"
 	psql -h 127.0.0.1 -p $(PORT_OUT) -U postgres
 
 volume:
