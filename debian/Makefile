@@ -18,12 +18,18 @@ create_network:
 run:
 	mkdir $(VOLUME_NAME) || true
 	touch .env || true
-	docker run --env-file .env --rm -it --name $(CONTAINER_NAME) -v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) --net $(SUBNET_NAME) --ip $(ADDR) $(IMAGE_NAME)
+	docker run --env-file .env --rm -it --name $(CONTAINER_NAME) \
+		-v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) \
+		--net $(SUBNET_NAME) --ip $(ADDR) \
+		$(IMAGE_NAME)
 
 rund:
 	mkdir $(VOLUME_NAME) || true
 	touch .env || true
-	docker run --env-file .env --rm -it -d --name $(CONTAINER_NAME) -v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) --net $(SUBNET_NAME) --ip $(ADDR) -p $(SSH_PORTS) $(IMAGE_NAME) sleep infinity
+	docker run --env-file .env --rm -it -d --name $(CONTAINER_NAME) \
+		-v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) \
+		--net $(SUBNET_NAME) --ip $(ADDR) -p $(SSH_PORTS) \
+		$(IMAGE_NAME) sleep infinity
 	docker exec $(CONTAINER_NAME) service ssh restart
 
 attach:
