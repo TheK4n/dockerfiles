@@ -27,7 +27,7 @@ rund:
 	docker exec $(CONTAINER_NAME) service ssh restart
 
 attach:
-	docker attach $(CONTAINER_NAME)
+	docker exec -it $(CONTAINER_NAME) bash
 
 stop:
 	docker stop $(CONTAINER_NAME)
