@@ -5,6 +5,7 @@ IMAGE_NAME=$(USER)/debian:custom
 SSH_PORTS=2222:22
 SUBNET_NAME=devnet
 ADDR=172.18.0.100
+SHELL=/bin/bash
 
 
 all: build
@@ -21,7 +22,7 @@ run:
 	docker run --env-file .env --rm -it --name $(CONTAINER_NAME) \
 		-v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) \
 		--net $(SUBNET_NAME) --ip $(ADDR) \
-		$(IMAGE_NAME)
+		$(IMAGE_NAME) $(SHELL)
 
 rund:
 	mkdir $(VOLUME_NAME) || true
@@ -33,7 +34,7 @@ rund:
 	docker exec $(CONTAINER_NAME) service ssh restart
 
 attach:
-	docker exec -it $(CONTAINER_NAME) bash
+	docker exec -it $(CONTAINER_NAME) $(SHELL)
 
 stop:
 	docker stop $(CONTAINER_NAME)
