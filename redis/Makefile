@@ -15,7 +15,7 @@ rund:
 		redis
 
 connect:
-	redis-cli -p $(PORT_OUT)
+	redis-cli -h $(ADDR) -p $(PORT_OUT)
 
 stop:
 	docker stop $(CONTAINER_NAME)
