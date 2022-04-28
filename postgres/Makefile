@@ -18,7 +18,7 @@ rund:
 
 connect:
 	echo "--> Enter password: $(POSTGRES_PASSWORD) <--"
-	psql -h $(ADDR) -p $(PORT_OUT) -U postgres
+	psql -h $(ADDR) -p $(PORT_IN) -U postgres
 
 volume:
 	docker volume create $(VOLUME_NAME)
