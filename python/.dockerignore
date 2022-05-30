@@ -1,0 +1,10 @@
+.git
+.gitignore
+.idea
+.docker-compose.yaml
+venv
+env
+.venv
+.env
+Dockerfile
+
