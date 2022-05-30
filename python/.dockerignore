@@ -1,10 +1,11 @@
 .git
 .gitignore
 .idea
-.docker-compose.yaml
 venv
 env
 .venv
 .env
+__pycache__
 Dockerfile
-
+.docker-compose.yaml
+*.log
