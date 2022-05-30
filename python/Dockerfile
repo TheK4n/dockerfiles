@@ -1,6 +1,6 @@
 
 # light version
-FROM python:3.10-slim
+FROM python:3.10-slim-buster
 
 # no permissions user
 RUN addgroup --gid 1001 --system app && \
