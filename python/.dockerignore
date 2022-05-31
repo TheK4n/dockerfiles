@@ -8,4 +8,5 @@ env
 __pycache__
 Dockerfile
 .docker-compose.yaml
+.dockerignore
 *.log

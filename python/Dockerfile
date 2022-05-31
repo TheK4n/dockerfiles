@@ -2,7 +2,6 @@
 # light version
 FROM python:3.10-slim-buster
 
-
 WORKDIR /app
 
 COPY requirements.txt .
@@ -13,7 +12,9 @@ COPY . .
 # no permissions user
 RUN addgroup --gid 1001 --system app && \
     adduser --no-create-home --shell /bin/false --disabled-password --uid 1001 --system --group app && \
-    chown -R app:app /app
+    chmod -R og=r /app && \
+    chmod og=rx /app
+
 USER app:app
 
 CMD ["python", "app.py"]
