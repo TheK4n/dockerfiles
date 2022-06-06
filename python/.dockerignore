@@ -10,3 +10,5 @@ Dockerfile
 .docker-compose.yaml
 .dockerignore
 *.log
+Makefile
+Shared

@@ -12,7 +12,8 @@ build:
 run:
 	mkdir $(VOLUME_NAME) || true
 	docker run --rm -it --name $(CONTAINER_NAME) \
-		-v $(PWD)/$(VOLUME_NAME):/root/$(VOLUME_NAME) \
+		-v $(PWD)/$(VOLUME_NAME):/app/$(VOLUME_NAME) \
+		--read-only=true \
 		$(IMAGE_NAME)
 
 stop:
