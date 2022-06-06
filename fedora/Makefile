@@ -1,7 +1,7 @@
 
 CONTAINER_NAME=fedora
 VOLUME_NAME=Shared
-IMAGE_NAME=$(USER)/fedora:custom
+IMAGE_NAME=$(USER)/fedora
 SUBNET_NAME=devnet
 
 all: build

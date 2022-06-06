@@ -17,6 +17,3 @@ RUN addgroup --gid 1001 --system app && \
 
 
 USER app:app
-
-CMD ["python", "app.py"]
-

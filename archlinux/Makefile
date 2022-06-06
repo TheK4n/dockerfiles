@@ -1,7 +1,7 @@
 
 CONTAINER_NAME=archlinux
 VOLUME_NAME=Shared
-IMAGE_NAME=$(USER)/archlinux:custom
+IMAGE_NAME=$(USER)/archlinux
 SUBNET_NAME=devnet
 
 all: build
