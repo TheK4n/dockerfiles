@@ -2,6 +2,7 @@
 CONTAINER_NAME=python
 VOLUME_NAME=Shared
 IMAGE_NAME=$(USER)/python
+NETWORK=no-internet
 
 
 all: build
@@ -13,8 +14,14 @@ run:
 	mkdir $(VOLUME_NAME) || true
 	docker run --rm -it --name $(CONTAINER_NAME) \
 		-v $(PWD)/$(VOLUME_NAME):/app/$(VOLUME_NAME) \
-		--read-only=true \
+		--read-only=true --network $(NETWORK) \
 		$(IMAGE_NAME)
+
+create_network:
+	docker network create --internal --subnet 10.2.1.0/24 $(NETWORK)
+
+disable_network:
+	docker network connect $(NETWORK) $(CONTAINER_NAME)
 
 stop:
 	docker stop $(CONTAINER_NAME)
